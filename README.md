@@ -5,7 +5,7 @@
 - [Getting started](#getting-started)
   - [0. Prerequisites](#0-prerequisites)
   - [1. Install](#1-install)
-  - [2. Make cert](#2-make-cert)
+  - [2. Create SSL cert](#2-create-ssl-cert)
   - [3. Start](#3-start)
 
 ## Getting started
@@ -20,7 +20,7 @@ pnpm을 설치했다고 가정합니다.
 pnpm install
 ```
 
-### 2. Make cert
+### 2. Create SSL cert
 
 로컬 https 개발환경을 위해 인증서를 생성합니다.
 
