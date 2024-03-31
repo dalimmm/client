@@ -1,9 +1,7 @@
-import { Todo } from './Todo';
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { TodoBundle } from './TodoBundle';
 
-const meta: Meta<typeof Todo> = {
+const meta: Meta<typeof TodoBundle> = {
   title: 'Todo/TodoBundle',
   component: TodoBundle,
 };
