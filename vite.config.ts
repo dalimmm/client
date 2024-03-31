@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 import fs from 'node:fs';
+import path from 'path';
 
 const key = fs.readFileSync('localhost-key.pem');
 const cert = fs.readFileSync('localhost-cert.pem');
@@ -13,6 +14,11 @@ export default defineConfig({
     https: {
       key,
       cert,
+    },
+  },
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, './src'),
     },
   },
 });
