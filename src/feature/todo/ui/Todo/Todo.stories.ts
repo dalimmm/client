@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import { Todo } from './Todo';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Todo> = {
   title: 'Todo/Todo',
