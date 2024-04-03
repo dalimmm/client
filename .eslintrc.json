@@ -12,8 +12,9 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "plugin:storybook/recommended"
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:storybook/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh"],
@@ -22,16 +23,19 @@
       "error",
       {
         "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
-          "external",
           "builtin",
-          "object",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
           "type"
         ],
         "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          },
           {
             "pattern": "~/**",
             "group": "internal"
