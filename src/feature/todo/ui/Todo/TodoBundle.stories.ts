@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { TodoBundle } from './TodoBundle';
+
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof TodoBundle> = {
   title: 'Todo/TodoBundle',
@@ -12,60 +13,60 @@ type Story = StoryObj<typeof TodoBundle>;
 
 export const Default: Story = {
   args: {
-    title: "미완료",
+    title: '미완료',
     bundle: [
       {
-        id: "1",
-        content: "react 공부하기",
+        id: '1',
+        content: 'react 공부하기',
         due: 1711848501,
         done: false,
       },
       {
-        id: "2",
-        content: "todo 만들기 공부하기",
+        id: '2',
+        content: 'todo 만들기 공부하기',
         due: 1711848501,
         done: false,
-      }
-    ]
+      },
+    ],
   },
 };
 
 export const Done: Story = {
   args: {
-    title: "완료",
+    title: '완료',
     bundle: [
       {
-        id: "1",
-        content: "react 공부하기",
+        id: '1',
+        content: 'react 공부하기',
         due: 1711848501,
         done: true,
       },
       {
-        id: "2",
-        content: "todo 만들기 공부하기",
+        id: '2',
+        content: 'todo 만들기 공부하기',
         due: 1711848501,
         done: true,
-      }
-    ]
+      },
+    ],
   },
 };
 
 export const Expired: Story = {
   args: {
-    title: "기간 만료",
+    title: '기간 만료',
     bundle: [
       {
-        id: "5",
-        content: "react 공부하기",
+        id: '5',
+        content: 'react 공부하기',
         due: 1711762101,
         done: true,
       },
       {
-        id: "6",
-        content: "todo 만들기 공부하기",
+        id: '6',
+        content: 'todo 만들기 공부하기',
         due: 1711762101,
         done: true,
-      }
-    ]
+      },
+    ],
   },
 };

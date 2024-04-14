@@ -1,55 +1,57 @@
-import * as React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDownIcon } from "@radix-ui/react-icons"
+import classNames from 'classnames';
+import { useState, type ReactNode } from 'react';
 
-import { cn } from "~/base/components/utils"
+export function Accordion({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  const [opened, setOpened] = useState(true);
 
-const Accordion = AccordionPrimitive.Root
+  function handleToggle() {
+    setOpened(!opened);
+  }
 
-const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={cn("border-b", className)}
-    {...props}
-  />
-))
-AccordionItem.displayName = "AccordionItem"
-
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <ChevronDownIcon className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-))
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
-
-const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    {...props}
-  >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
-  </AccordionPrimitive.Content>
-))
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
-
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+  return (
+    <div className="rounded-lg border border-neutral-200">
+      <h2 className="mb-0">
+        <button
+          className="group flex justify-between item-center w-full rounded-lg border-1 px-5 py-4"
+          onClick={handleToggle}
+        >
+          {title}
+          <span
+            className={classNames(
+              'h-5 w-5 transition-transform',
+              opened && 'rotate-180',
+            )}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              ></path>
+            </svg>
+          </span>
+        </button>
+        <div
+          className={classNames(
+            'transition-[max-height] overflow-hidden',
+            opened ? 'max-h-96' : 'max-h-0',
+          )}
+        >
+          <div className="p-4 border-t">{children}</div>
+        </div>
+      </h2>
+    </div>
+  );
+}
