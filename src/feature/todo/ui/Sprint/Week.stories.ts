@@ -32,17 +32,17 @@ export const Default: Story = {
       {
         date: 1712160373,
         sprintNumber: 1,
-        done: true,
+        done: false,
       },
       {
         date: 1712246773,
         sprintNumber: 1,
-        done: true,
+        done: false,
       },
       {
         date: 1712333173,
         sprintNumber: 0,
-        done: true,
+        done: false,
       },
       {
         date: 1712419573,
