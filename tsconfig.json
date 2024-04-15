@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "types": ["vitest/importMeta"],
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/base/*"],
       "~/*": ["./src/*"]
     },
     "target": "ES2020",
