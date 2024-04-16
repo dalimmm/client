@@ -1,9 +1,9 @@
 import { Day } from './Day';
 
-export function Week({ oneWeek }: { oneWeek: Day[] }) {
+export function Week({ weeklySprints }: { weeklySprints: Day[] }) {
   return (
     <div className="flex items-stretch">
-      {oneWeek.map((day) => (
+      {weeklySprints.map((day) => (
         <Day
           key={day.date}
           date={day.date}

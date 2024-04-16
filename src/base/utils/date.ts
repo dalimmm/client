@@ -1,4 +1,4 @@
-export function convertDayNumToText(dayNum: number): string {
+export function convertDayNumToText(dayNum: 1 | 2 | 3 | 4 | 5 | 6 | 7): string {
   switch (dayNum) {
     case 1:
       return '월';

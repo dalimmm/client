@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Week>;
 
 export const Default: Story = {
   args: {
-    oneWeek: [
+    weeklySprints: [
       {
         date: 1711901173,
         sprintNumber: 2,
